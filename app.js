@@ -41,7 +41,10 @@ wss.on('connection', function(ws) {
   , quirks: 0
   }
 
+    var target=Date.now()+10*1000;
   function tryRead() {
+    console.log("many times");
+    // while (Date.now()<target);
     for (var chunk; (chunk = stream.read());) {
       console.info('chunk(length=%d)', chunk.length)
       for (var cursor = 0, len = chunk.length; cursor < len;) {
